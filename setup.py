@@ -19,7 +19,7 @@ setup(
     author="Vitaman02",
     url="https://github.com/Vitaman02/pygsearch",
     project_urls={},
-    version="0.1.0",
+    version="0.3.1",
     packages=find_packages(),
     license="MIT",
     description="Python library to get google search results.",
@@ -40,7 +40,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10"
+        "Programming Language :: Python :: 3.10",
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Utilities"
