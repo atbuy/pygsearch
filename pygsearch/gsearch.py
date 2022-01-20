@@ -38,7 +38,7 @@ class gsearch:
         self.lang = lang
         self.headers = headers
         self.proxies = proxies
-        self.results = None
+        self.results = []
 
         # If there is a query passed to the class, then search it and save the results
         if query:
@@ -75,3 +75,22 @@ class gsearch:
             out.append(SearchResult(title, link, description))
 
         return out
+
+    def __iter__(self):
+        self.index = 0
+        self.max = len(self.results) - 1
+        return self
+
+    def __next__(self):
+        if self.index <= self.max:
+            out = self.results[self.index]
+            self.index += 1
+            return out
+
+        raise StopIteration
+
+    def __str__(self) -> str:
+        return f"<gsearch: query='{self.query}' results={len(self.results)} lang='{self.lang}'>"
+
+    def __repr__(self) -> str:
+        return self.__str__()

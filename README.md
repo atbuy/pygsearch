@@ -35,6 +35,16 @@ search = gsearch("github")
 print(search.results)
 ```
 
+Or you can iterate over the results:
+
+```py
+from pygsearch import gsearch
+
+results = gsearch("github")
+for result in results:
+    print(result)
+```
+
 You can also change how many results you want, pass your own headers, use proxies or even change the language:
 
 ```py
