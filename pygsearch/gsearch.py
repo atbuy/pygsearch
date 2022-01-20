@@ -42,39 +42,56 @@ class gsearch:
 
         # If there is a query passed to the class, then search it and save the results
         if query:
-            self.results = self.search(self.query, self.num, self.lang, self.headers, self.proxies)
+            self.results = list(self.search(self.query, self.num, self.lang, self.headers, self.proxies))
 
     def search(self, query: str, results: int = 10, lang: str = "en", headers: dict = None, proxies: Dict[str, str] = None) -> List[SearchResult]:
+        cleaned_query = query.replace(" ", "+")
+
         # Use default headers, if none are passed
         if not headers:
             headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"}
 
         # Google search url
-        url = f"https://www.google.com/search?q={query}&num={results+1}&hl={lang}"
+        url = f"https://www.google.com/search?q={cleaned_query}&num={results*2+1}&hl={lang}"
         response = requests.get(url, headers=headers, proxies=proxies)
         soup = BeautifulSoup(response.text, "lxml")
 
         # Get all results
         elements = soup.find_all("div", {"class": "g"})
 
-        # Parse each result and return the list of SearchResults
-        out = []
+        seen = []
+        counter = 0
         for element in elements:
+            if counter == results:
+                break
+
+            has_content = element.find_all("div", {"class": "g"})
+            if has_content:
+                element = has_content[0]
+
             title = element.find("h3")
             if title:
                 title = title.get_text()
 
-            link = element.find("a")
+            link = element.find("a", href=True)
             if link:
                 link = link.get("href")
 
+            if not link.startswith("http"):
+                continue
+
             description = element.find("div", {"data-content-feature": "1"})
+            descr2 = element.find("div", {"class": "IsZvec"})
             if description:
                 description = description.get_text()
+            elif descr2:
+                description = descr2.get_text()
 
-            out.append(SearchResult(title, link, description))
+            if not link in seen:
+                yield SearchResult(title, link, description)
+                counter += 1
 
-        return out
+            seen.append(link)
 
     def __iter__(self):
         self.index = 0
