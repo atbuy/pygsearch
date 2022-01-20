@@ -8,6 +8,8 @@ Python library to get google search results.
 
 from collections import namedtuple
 
+from .gsearch import *
+
 
 __title__ = "pygsearch"
 __author__ = "Vitaman02"
