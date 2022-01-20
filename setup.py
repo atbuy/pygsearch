@@ -2,15 +2,16 @@ import os
 from setuptools import setup, find_packages
 
 
-cwd = os.path.abspath(os.path.dirname(__file__))
+this_dir = os.path.abspath(os.path.dirname(__file__))
 
-# Get package dependencies
-with open(os.path.join(cwd, "requirements.txt")) as file:
+
+requirements = []
+with open(os.path.join(this_dir, "requirements.txt")) as file:
     requirements = file.read().splitlines()
 
 
-# Get README text
-with open(os.path.join(cwd, "README.md")) as file:
+readme = ""
+with open(os.path.join(this_dir, "README.md")) as file:
     readme = file.read()
 
 
