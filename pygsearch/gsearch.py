@@ -25,7 +25,7 @@ class SearchResult:
         return hash(self.link)
 
     def __str__(self) -> str:
-        return f"<SearchResult: title='{self.title}' link='{self.link}>'"
+        return f"<SearchResult: title='{self.title}' link='{self.link}'>"
 
     def __repr__(self) -> str:
         return self.__str__()
