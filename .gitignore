@@ -16,7 +16,7 @@ __pycache__
 .github/*
 
 # Ignore dist folder
-./dist/*
+dist
 
 # Ignore local test file
 test.py
