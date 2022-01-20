@@ -15,7 +15,7 @@ __title__ = "pygsearch"
 __author__ = "Vitaman02"
 __license__ = "MIT"
 __copyright__ = "Copyright 2022-present Vitaman02"
-__version__ = "0.3.2"
+__version__ = "0.3.4"
 
 
 VersionInfo = namedtuple("VersionInfo", "major minor patch")
