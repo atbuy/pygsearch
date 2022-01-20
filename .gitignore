@@ -12,8 +12,6 @@ __pycache__
 # Ignore pytest cache
 .pytest_cache
 
-# Ignore github files
-.github/*
 
 # Ignore dist folder
 dist

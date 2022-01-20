@@ -8,25 +8,25 @@ class SearchResult:
         self.title = title
         self.link = link
         self.description = description
-    
+
     def prettify(self) -> str:
         return f"Link:  {self.link}\nTitle: {self.title}\nDescr: {self.description}\n"
-    
+
     def __eq__(self, other) -> bool:
         if isinstance(other, str):
             return self.link == other
-        
+
         if isinstance(other, self.__class__):
             return self.link == other.link
-        
+
         raise TypeError(f"Can't check equality of type '{self.__class__.__name__}' with type '{other.__class__.__name__}'")
-    
+
     def __hash__(self) -> int:
         return hash(self.link)
 
     def __str__(self) -> str:
         return f"<SearchResult: title='{self.title}' link='{self.link}>'"
-    
+
     def __repr__(self) -> str:
         return self.__str__()
 
@@ -43,7 +43,6 @@ class gsearch:
         # If there is a query passed to the class, then search it and save the results
         if query:
             self.results = self.search(self.query, self.num, self.lang, self.headers, self.proxies)
-
 
     def search(self, query: str, results: int = 10, lang: str = "en", headers: dict = None, proxies: Dict[str, str] = None) -> List[SearchResult]:
         # Use default headers, if none are passed
@@ -74,5 +73,5 @@ class gsearch:
                 description = description.get_text()
 
             out.append(SearchResult(title, link, description))
-            
+
         return out
