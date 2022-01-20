@@ -20,7 +20,7 @@ setup(
     author="Vitaman02",
     url="https://github.com/Vitaman02/pygsearch",
     project_urls={},
-    version="0.3.6",
+    version="0.3.7",
     packages=find_packages(),
     license="MIT",
     description="Python library to get google search results.",
