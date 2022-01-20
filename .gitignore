@@ -9,6 +9,9 @@ __pycache__
 # Ignore .vscode files
 .vscode
 
+# Ignore pytest cache
+.pytest_cache
+
 # Ignore dist folder
 ./dist/*
 
