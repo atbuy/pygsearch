@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Iterable, Optional
 
 import requests
 from bs4 import BeautifulSoup
@@ -37,11 +37,11 @@ class SearchResult:
 class gsearch:
     def __init__(
         self,
-        query: str = None,
+        query: Optional[str] = None,
         num: int = 10,
         lang: str = "en",
-        headers: Dict[str, str] = None,
-        proxies: Dict[str, str] = None,
+        headers: Optional[dict[str, str]] = None,
+        proxies: Optional[dict[str, str]] = None,
     ):
         self.query = query
         self.num = num
@@ -51,7 +51,7 @@ class gsearch:
         self.results = []
 
         # If there is a query passed to the class, then search it and save the results
-        if query:
+        if self.query:
             self.results = list(
                 self.search(self.query, self.num, self.lang, self.headers, self.proxies)
             )
@@ -61,9 +61,9 @@ class gsearch:
         query: str,
         results: int = 10,
         lang: str = "en",
-        headers: dict = None,
-        proxies: Dict[str, str] = None,
-    ) -> List[SearchResult]:
+        headers: Optional[dict[str, str]] = None,
+        proxies: Optional[dict[str, str]] = None,
+    ) -> Iterable[SearchResult]:
         cleaned_query = query.replace(" ", "+")
 
         # Use default headers, if none are passed
