@@ -30,7 +30,7 @@ jobs:
           poetry install --all-extras
       - name: Lint with ruff
         run: |
-          poetry run ruff check pyurbandict
+          poetry run ruff check pygsearch
       - name: Test with pytest
         run: |
-          poetry run pytest --cov=pyurbandict --cov-report=term-missing tests/
+          poetry run pytest --cov=pygsearch --cov-report=term-missing tests/
