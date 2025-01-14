@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "pygsearch"
+version = "0.6.0"
+description = "Python library to get google search results"
+authors = ["atbuy <buy@atbuy.dev>"]
+license = "MIT"
+homepage = "https://github.com/atbuy/pygsearch"
+repository = "https://github.com/atbuy/pygsearch"
+keywords = ["search", "google", "query", "python"]
+include = ["README.md"]
+readme = "README.md"
+packages = [
+    {include = "pygsearch"}
+]
+classifiers = [
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Information Technology",
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Topic :: Software Development :: Libraries",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Utilities"
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.32.3"
+beautifulsoup4 = "^4"
+lxml = "^5"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/atbuy/pygsearch/issues"
+"Source Code" = "https://github.com/atbuy/pygsearch"
+"CI/CD" = "https://github.com/atbuy/pygsearch/actions"
+
+[tool.poetry.group.dev.dependencies]
+tox = "^4.23.2"
+pre-commit = "^4.0.1"
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
+ruff = "^0.9.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
