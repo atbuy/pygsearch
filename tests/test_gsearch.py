@@ -1,14 +1,4 @@
-import sys
-from pathlib import Path
-
-root = Path(__file__).parent.parent
-sys.path.append(str(root))
-
-path = sys.path
-sys.path.append("")
-
-
-from pygsearch import gsearch, SearchResult
+from pygsearch import SearchResult, gsearch
 
 
 def test_gsearch_iter():

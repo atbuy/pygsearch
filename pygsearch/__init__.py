@@ -1,23 +1,3 @@
-"""
-pygsearch
-~~~~~~~~~~
-Python library to get google search results.
-:copyright: (c) 2022-present Vitaman02
-:license: MIT, see LICENSE for more details.
-"""
+from pygsearch.gsearch import SearchResult, gsearch  # noqa: F401
 
-from collections import namedtuple
-
-from .gsearch import *
-
-
-__title__ = "pygsearch"
-__author__ = "Vitaman02"
-__license__ = "MIT"
-__copyright__ = "Copyright 2022-present Vitaman02"
-__version__ = "0.5.1"
-
-
-VersionInfo = namedtuple("VersionInfo", "major minor patch")
-
-version_info = VersionInfo(*map(int, __version__.split(".")))
+__version__ = (0, 6, 0)
