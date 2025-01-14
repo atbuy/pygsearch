@@ -1,20 +1,8 @@
-# Ignore __pycache__ folders
-__pycache__
-./__pycache__
-*/__pycache__
-
-# Ignore egg-info folders
-*.egg-info
-
-# Ignore .vscode files
+# VSCode
 .vscode
 
-# Ignore pytest cache
-.pytest_cache
-
-
-# Ignore dist folder
-dist
-
-# Ignore local test file
-test.py
+# Python
+*.py[cod]
+*.egg-info
+.python-version
+pyrightconfig.json
