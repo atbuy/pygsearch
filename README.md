@@ -66,7 +66,3 @@ language = "en"
 search = gsearch("github", 20, language, headers, proxies)
 print(search.results)
 ```
-
-
-
-
